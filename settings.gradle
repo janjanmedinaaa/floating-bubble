@@ -1,0 +1,2 @@
+include ':app', ':floating-bubble'
+rootProject.name='Floating Bubble'
