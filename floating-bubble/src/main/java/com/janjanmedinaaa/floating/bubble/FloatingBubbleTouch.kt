@@ -96,7 +96,7 @@ class FloatingBubbleTouch private constructor(builder: Builder) : View.OnTouchLi
 
                 listener?.onMove(motionEvent.rawX, motionEvent.rawY)
                 physics!!.onMove(motionEvent.rawX, motionEvent.rawY)
-                actionListener.onBubbleViewMoved(motionEvent.rawX, motionEvent.rawY)
+                actionListener.onBubbleViewMoved(bubbleView!!, bubbleParams)
             }
 
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
@@ -111,7 +111,7 @@ class FloatingBubbleTouch private constructor(builder: Builder) : View.OnTouchLi
                     if (!isRemoved) {
                         physics!!.onUp(motionEvent.rawX, motionEvent.rawY)
                     } else {
-                        actionListener.onDragToRemove()
+                        actionListener.onDragToRemove(bubbleView!!, bubbleParams)
                     }
                 }
             }

@@ -105,6 +105,10 @@ open class FloatingBubbleService : Service() {
         windowManager!!.defaultDisplay.getSize(windowSize)
     }
 
+    fun getWindowSize() = windowSize
+
+    fun getWindowManager() = windowManager
+
     private fun setLayoutInflater() {
         inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }

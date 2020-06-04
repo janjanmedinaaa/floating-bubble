@@ -7,7 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 
-private fun requiresPermission(context: Context): Boolean {
+fun requiresPermission(context: Context): Boolean {
     return Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)
 }
 

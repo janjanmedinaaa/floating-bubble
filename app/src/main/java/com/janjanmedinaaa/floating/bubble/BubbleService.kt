@@ -2,6 +2,8 @@ package com.janjanmedinaaa.floating.bubble
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.view.View
+import android.view.WindowManager
 import com.janjanmedinaaa.floating.bubble.listener.FloatingBubbleActionListener
 
 class BubbleService : FloatingBubbleService(), FloatingBubbleActionListener {
@@ -11,8 +13,8 @@ class BubbleService : FloatingBubbleService(), FloatingBubbleActionListener {
         return FloatingBubbleConfig.Builder()
             .bubbleView(R.layout.layout_bubble_view)
             .removeBubbleView(R.layout.layout_remove_bubble_view)
-            .bubbleViewSize(64)
-            .removeBubbleViewSize(64)
+            .bubbleViewSize(70)
+            .removeBubbleViewSize(70)
             .onActionListener(this)
             .build()
     }
@@ -21,17 +23,12 @@ class BubbleService : FloatingBubbleService(), FloatingBubbleActionListener {
         return true
     }
 
-    override fun onExpandedView() {}
-
-    override fun onBubbleViewCreated() {}
-
-    override fun onBubbleViewClosed() {}
-
-    override fun onDragToRemove() {
+    override fun onDragToRemove(
+        bubbleView: View,
+        bubbleParams: WindowManager.LayoutParams
+    ) {
         removeAllViews()
     }
 
     override fun onBubbleViewClicked() {}
-
-    override fun onBubbleViewMoved(x: Float, y: Float) {}
 }
